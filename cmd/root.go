@@ -12,9 +12,20 @@ var rootCmd = &cobra.Command{
 	Short: "A todo list right in your terminal",
 	Long: `This is a todo list application which will be available right in your terminal to help avoid context switching.
 	Meant for programmers to use in their day-to-day life.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Run: func(cmd *cobra.Command, args []string) {
+		switch args[0] {
+		case "list":
+			// goto list
+		case "add":
+			// add todo
+		case "delete":
+			// delete todo
+		case "done":
+			// mark todo as done
+		default:
+			os.Exit(1)
+		}
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
